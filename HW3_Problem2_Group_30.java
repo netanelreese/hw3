@@ -76,20 +76,10 @@ public class HW3_Problem2_Group_30 {
                     Thread.sleep(1000);
                     System.out.println(" . ");
                     
-                    final int salary = calculateSalary(); // Read in the user input of student ID
+                    final int salary = calculateSalary(); // calculate salary
 
-                    System.out.println("Salary is " + salary + ".");
+                    System.out.println("Salary is " + salary + "."); //print salary for user
                     
-                    System.out.println("Please enter float student GPA:");
-                    final float gpa = sc.nextFloat(); // Read in user input of student GPA
-
-                    System.out.println("Please enter student major:");
-                    sc.nextLine(); // Consuming the trailing new line character left after nextFloat
-                    final String major = sc.nextLine(); // Read in user input of student Major
-
-                    System.out.println("Please enter student classification (Freshman, Sophomore, Junior, or Senior):");
-                    final String classification = sc.nextLine(); // Read in user input of student Classification
-
                     System.out.println("Connecting to the database...");
                     // Get a database connection and prepare a query statement
                     try (final Connection connection = DriverManager.getConnection(URL)) {
