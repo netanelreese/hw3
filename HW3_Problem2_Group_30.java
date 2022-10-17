@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 
-public class HW3_Problem2_Group_30 {
+ class HW3_Problem2_Group_30 {
 
     // Database credentials
     final static String HOSTNAME = "rees0012-sql-server.database.windows.net";
