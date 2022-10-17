@@ -27,9 +27,9 @@ public class HW3_Problem2_Group_30 {
     // User input prompt//
     final static String PROMPT = 
             "\nPlease select one of the options below: \n" +
-            "1) Insert new student; \n" + 
-            "2) Display all students; \n" +
-	    "3) Uhhh\n" + 
+            "1) Insert new faculty with salary calculation 1; \n" + 
+            "2) Insert new faculty with salary calculation 2; \n" +
+	    "3) Display all faculty members;\n" + 
             "4) Exit!";
 
     public static int calculateSalary() throws SQLException{
