@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 
-public class sample {
+public class HW3_Problem2_Group_30 {
 
     // Database credentials
     final static String HOSTNAME = "rees0012-sql-server.database.windows.net";
@@ -29,7 +29,7 @@ public class sample {
             "\nPlease select one of the options below: \n" +
             "1) Insert new student; \n" + 
             "2) Display all students; \n" +
-	    "3) Uhhh\n";
+	    "3) Uhhh\n" + 
             "4) Exit!";
 
     public static void main(String[] args) throws SQLException {
@@ -120,7 +120,7 @@ public class sample {
                 case "4": // Do nothing, the while loop will terminate upon the next iteration
                     System.out.println("Exiting! Good-buy!");
                     sc.close();
-		    System.exit();
+		    System.exit(0);
 		    break;
                 default: // Unrecognized option, re-prompt the user for the correct one
                     System.out.println(String.format(
