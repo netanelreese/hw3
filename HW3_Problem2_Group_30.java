@@ -1,3 +1,4 @@
+
 import java.sql.Connection;
 import java.sql.Statement;
 import java.util.Scanner;
@@ -24,6 +25,10 @@ import java.sql.PreparedStatement;
 
     final static String QUERY_TEMPLATE_2 = "SELECT * FROM Faculty;";
 
+    final static String avgSalary1 = "EXEC avg_salary_1 @dept_id = ?";
+    
+    final static String avgSalary2 = "EXEC avg_salary_2 @dept_id = ?";
+    
     // User input prompt//
     final static String PROMPT = 
             "\nPlease select one of the options below: \n" +
@@ -32,8 +37,47 @@ import java.sql.PreparedStatement;
 	    "3) Display all faculty members;\n" + 
             "4) Exit!";
 
-    public static int calculateSalary() throws SQLException{
+    
+
+    public static int salary1(int deptid) throws SQLException {
     	int salary = 0;
+
+    	
+        try (final Connection connection = DriverManager.getConnection(URL)) {
+            try (
+                final PreparedStatement statement = connection.prepareStatement(avgSalary1)){
+                    statement.setInt(1, deptid);
+                    try (
+                    		final ResultSet resultSet = statement.executeQuery()) {
+                        // Populate the query template with the data collected from the user
+                        while (resultSet.next()) {
+                                salary+=resultSet.getInt(1);
+
+                        }
+                        
+                    }
+                }
+        }    	
+    	return salary;
+    }
+    
+    public static int salary2(int deptid) throws SQLException {
+    	int salary = 0;
+
+    	
+        try (final Connection connection = DriverManager.getConnection(URL)) {
+            try (
+                final PreparedStatement statement = connection.prepareStatement(avgSalary1)){
+                    statement.setInt(1, deptid);
+                    try (
+                    		final ResultSet resultSet = statement.executeQuery()) {
+                        // Populate the query template with the data collected from the user
+                        while (resultSet.next()) {
+                                salary+=resultSet.getInt(1);
+                        }
+                    }
+                }
+        }
     	
     	return salary;
     }
@@ -76,7 +120,7 @@ import java.sql.PreparedStatement;
                     Thread.sleep(1000);
                     System.out.println(" . ");
                     
-                    final int salary = calculateSalary(); // calculate salary
+                    final int salary = salary1(deptid); // calculate salary
 
                     System.out.println("Salary is " + salary + "."); //print salary for user
                     
@@ -117,6 +161,9 @@ import java.sql.PreparedStatement;
                     
                     System.out.println("Please enter integer Department ID:");
                     final int deptid2 = sc.nextInt(); // Read in the user input of student ID
+                    
+                    System.out.println("Please enter integer Department ID to exclude from salary calculation:");
+                    final int excludeDeptid = sc.nextInt(); // Read in the user input of student ID
 
                     System.out.print("Calculating faculty salary");
                     Thread.sleep(1000);
@@ -126,7 +173,7 @@ import java.sql.PreparedStatement;
                     Thread.sleep(1000);
                     System.out.println(" . ");
                     
-                    final int salary2 = calculateSalary(); // Read in the user input of student ID
+                    final int salary2 =  salary2(excludeDeptid);// Read in the user input of student ID
 
                     System.out.println("Salary is " + salary2 + ".");
                     
