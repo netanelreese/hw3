@@ -11,8 +11,8 @@ public class HW3_Problem2_Group_30 {
     // Database credentials
     final static String HOSTNAME = "rees0012-sql-server.database.windows.net";
     final static String DBNAME = "cs-dsa-4513-sql-db";
-    final static String USERNAME = "rees0012";
-    final static String PASSWORD = "<your_password>";
+    final static String USERNAME = "jdba";
+    final static String PASSWORD = "pooperpoop1234$%";
 
     // Database connection string
     final static String URL = String.format("jdbc:sqlserver://%s:1433;database=%s;user=%s;password=%s;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;",
