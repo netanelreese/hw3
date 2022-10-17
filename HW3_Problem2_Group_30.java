@@ -40,7 +40,7 @@ public class HW3_Problem2_Group_30 {
     
     public static void main(String[] args) throws SQLException, InterruptedException {
 
-        System.out.println("Welcome to the sample application!");
+        System.out.println("Welcome to HW3 by Group 30!");
 
         final Scanner sc = new Scanner(System.in); // Scanner is used to collect the user input
         String option = ""; // Initialize user option selection as nothing
